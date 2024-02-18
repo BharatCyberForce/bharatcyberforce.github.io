@@ -48,35 +48,55 @@ button:hover {
       <img src="https://bharatcyberforce.github.io/img/ransom.jpg" width="350"> 
       <br><br>
     <h1>Your files have been encrypted!</h1>
-    <p>If you see this page during a penetration test or cybersecurity training, do not panic. No actual harm has been done to your device or data.</p>
+    <p>Pay in time, or we will leak all of the data we found, Pay before the etimer ends and keep your data safe.<br>Remember, if you pay the ransom, there is no guarantee that your files will be restored. Additionally, attempting to delete the ransomware yourself may result in permanent loss of your data.</p>
     <p id="timer">Time remaining: 00:60</p>
     <button onclick="vibrateDevice()">Pay ransom</button>
   </div>
-  <script>
-    let timer = 60;
-let timerInterval;
+   <script>
+ let days = 0;
+ let hours = 0;
+ let minutes = 0;
+ let seconds = 0;
+ let timerInterval;
 
-function startTimer() {
-  timerInterval = setInterval(() => {
-    if (timer > 0) {
-      timer--;
-      document.getElementById("timer").innerText = `Time remaining: ${String(Math.floor(timer / 60)).padStart(2, "0")}:${String(timer % 60).padStart(2, "0")}`;
-    } else {
-      clearInterval(timerInterval);
-    }
-  }, 1000);
-}
+ function startTimer() {
+ timerInterval = setInterval(() => {
+ seconds--;
 
-startTimer();
+ if (seconds < 0) {
+ seconds = 59;
+ minutes--;
+ }
 
-function vibrateDevice() {
-  if (navigator.vibrate) {
-    navigator.vibrate(200);
-  } else {
-    console.log("Device vibration is not supported.");
-  }
-}
-  </script>
+ if (minutes < 0) {
+ minutes = 59;
+ hours--;
+ }
+
+ if (hours < 0) {
+ hours = 23;
+ days--;
+ }
+
+ if (days < 0) {
+ clearInterval(timerInterval);
+ }
+
+ document.getElementById("timer").innerText = `Time remaining: ${String(days).padStart(2, "0")}:${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+
+ }, 1000);
+ }
+
+ startTimer();
+
+ function vibrateDevice() {
+ if (navigator.vibrate) {
+ navigator.vibrate(200);
+ } else {
+ console.log("Device vibration is not supported.");
+ }
+ }
+ </script>
 <style> .memeck { position: absolute; margin: auto; height: 50%; top: 0; bottom: 0; left: 0; right: 0; } </style> <body onclick="playAudio();" class=""> <audio id="sec" __idm_id__="823202817"> <source src="https://bharatcyberforce.github.io/mp3/warn.mp3" type="audio/mpeg"> </audio><div class="memeck"> <script> var x = document.getElementById("sec"); function playAudio() { x.play(); } function myFunction() { var element = document.body; element.classList.toggle("dark-mode"); } function changeImage() { if (document.getElementById("imgClickAndChange").src == "body") { document.getElementById("imgClickAndChange").src = "body"; } else { document.getElementById("imgClickAndChange").src = "body"; } } 
 </script> 
 </body>
