@@ -43,13 +43,14 @@ button:hover {
 
 </head>
 <body>
+<body onload="startTimer()">
   <div class="container">
     <center> 
       <img src="https://bharatcyberforce.github.io/img/ransom.jpg" width="350"> 
       <br><br>
     <h1>Your files have been encrypted!</h1>
     <p>Pay in time, or we will leak all of the data we found, Pay before the etimer ends and keep your data safe.<br>Remember, if you pay the ransom, there is no guarantee that your files will be restored. Additionally, attempting to delete the ransomware yourself may result in permanent loss of your data.</p>
-    <p id="timer">Time remaining: 00:60</p>
+    <p id="timer">Time remaining: 00:00:00</p>
     <button onclick="vibrateDevice()">Pay ransom</button>
   </div>
    <script>
