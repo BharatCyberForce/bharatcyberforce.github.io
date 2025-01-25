@@ -265,24 +265,3 @@ color:red;
     clip-path: none;
   }
 }
-@media (max-width: 768px) {
-            h1 {
-                font-size: 24px;
-            }
-
-            h2 {
-                font-size: 18px;
-            }
-
-            .logo {
-                width: 100px;
-            }
-
-            .tg-button {
-                font-size: 0.9em;
-            }
-
-            marquee {
-                font-size: 14px;
-            }
-          }
