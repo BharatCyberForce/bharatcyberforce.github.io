@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Cyber Force</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto+Mono:400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=New+Rocker" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #0a0a1a;
+            color: #a0a0b0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+            background-image: radial-gradient(circle at center, #1a1a3a 0%, #0a0a1a 70%);
+        }
+
+        .container {
+            text-align: center;
+            padding: 2.5rem;
+            background-color: rgba(0, 0, 0, 0.02);
+            border-radius: 1.5rem;
+            box-shadow: none;
+            max-width: 90%;
+            width: 800px;
+            position: relative;
+            z-index: 10;
+            border: none;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #00e6e6;
+            text-shadow: none;
+            margin-bottom: 1.5rem;
+            animation: sparkGlitchBlue 0.2s infinite alternate;
+            letter-spacing: 0.1em;
+        }
+
+        @keyframes sparkGlitchBlue {
+            0% { text-shadow: none; transform: translate(0, 0); }
+            10% { text-shadow: 1px 0 0 #FF00FF, -1px 0 0 #FFFF00; transform: translate(1px, 0); }
+            20% { text-shadow: none; transform: translate(0, 0); }
+            30% { text-shadow: -1px 0 0 #00FFFF, 1px 0 0 #FF00FF; transform: translate(-1px, 0); }
+            40% { text-shadow: none; transform: translate(0, 0); }
+            50% { text-shadow: 0 1px 0 #FFFF00, 0 -1px 0 #00FFFF; transform: translate(0, 1px); }
+            60% { text-shadow: none; transform: translate(0, 0); }
+            70% { text-shadow: 0 -1px 0 #FF00FF, 0 1px 0 #FFFF00; transform: translate(0, -1px); }
+            80% { text-shadow: none; transform: translate(0, 0); }
+            90% { text-shadow: 1px 1px 0 #00FFFF, -1px -1px 0 #FF00FF; transform: translate(1px, 1px); }
+            100% { text-shadow: none; transform: translate(0, 0); }
+        }
+
+        .betrayal-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #FF0000;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .description-message {
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: #FFFFFF;
+            line-height: 1.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: none;
+            animation: none;
+        }
+
+        .icf_tg {
+            margin: 20px 0;
+        }
+
+        .tg-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            border: 2px solid #FFFFFF;
+            border-radius: 5px;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #00e6e6;
+            font-size: 1.1em;
+            transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+            box-shadow: 0 0 10px rgba(0, 230, 230, 0.4), 0 0 20px rgba(0, 230, 230, 0.2);
+        }
+
+        .tg-button:hover {
+            background-color: rgba(0, 230, 230, 0.1);
+            box-shadow: 0 0 15px rgba(0, 230, 230, 0.6), 0 0 30px rgba(0, 230, 230, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tg-button i {
+            margin-right: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+                border-radius: 1rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .betrayal-text {
+                font-size: 1rem;
+            }
+            .description-message {
+                font-size: 0.9rem;
+            }
+            .tg-button {
+                padding: 6px 12px;
+                font-size: 1em;
+            }
+            .tg-button i {
+                margin-right: 0.5rem;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .betrayal-text {
+                font-size: 0.9rem;
+            }
+            .description-message {
+                font-size: 0.85rem;
+            }
+            .tg-button {
+                padding: 5px 10px;
+                font-size: 0.9em;
+            }
+        }
+        .lay {
+  animation: paths 5s step-end infinite;
+}
+
+@keyframes paths {
+  0% {
+    clip-path: polygon(
+      0% 43%,
+      83% 43%,
+      83% 22%,
+      23% 22%,
+      23% 24%,
+      91% 24%,
+      91% 26%,
+      18% 26%,
+      18% 83%,
+      29% 83%,
+      29% 17%,
+      41% 17%,
+      41% 39%,
+      18% 39%,
+      18% 82%,
+      54% 82%,
+      54% 88%,
+      19% 88%,
+      19% 4%,
+      39% 4%,
+      39% 14%,
+      76% 14%,
+      76% 52%,
+      23% 52%,
+      23% 35%,
+      19% 35%,
+      19% 8%,
+      36% 8%,
+      36% 31%,
+      73% 31%,
+      73% 16%,
+      1% 16%,
+      1% 56%,
+      50% 56%,
+      50% 8%
+    );
+  }
+
+  5% {
+    clip-path: polygon(
+      0% 29%,
+      44% 29%,
+      44% 83%,
+      94% 83%,
+      94% 56%,
+      11% 56%,
+      11% 64%,
+      94% 64%,
+      94% 70%,
+      88% 70%,
+      88% 32%,
+      18% 32%,
+      18% 96%,
+      10% 96%,
+      10% 62%,
+      9% 62%,
+      9% 84%,
+      68% 84%,
+      68% 50%,
+      52% 50%,
+      52% 55%,
+      35% 55%,
+      35% 87%,
+      25% 87%,
+      25% 39%,
+      15% 39%,
+      15% 88%,
+      52% 88%
+    );
+  }
+
+  30% {
+    clip-path: polygon(
+      0% 53%,
+      93% 53%,
+      93% 62%,
+      68% 62%,
+      68% 37%,
+      97% 37%,
+      97% 89%,
+      13% 89%,
+      13% 45%,
+      51% 45%,
+      51% 88%,
+      17% 88%,
+      17% 54%,
+      81% 54%,
+      81% 75%,
+      79% 75%,
+      79% 76%,
+      38% 76%,
+      38% 28%,
+      61% 28%,
+      61% 12%,
+      55% 12%,
+      55% 62%,
+      68% 62%,
+      68% 51%,
+      0% 51%,
+      0% 92%,
+      63% 92%,
+      63% 4%,
+      65% 4%
+    );
+  }
+
+  45% {
+    clip-path: polygon(
+      0% 33%,
+      2% 33%,
+      2% 69%,
+      58% 69%,
+      58% 94%,
+      55% 94%,
+      55% 25%,
+      33% 25%,
+      33% 85%,
+      16% 85%,
+      16% 19%,
+      5% 19%,
+      5% 20%,
+      79% 20%,
+      79% 96%,
+      93% 96%,
+      93% 50%,
+      5% 50%,
+      5% 74%,
+      55% 74%,
+      55% 57%,
+      96% 57%,
+      96% 59%,
+      87% 59%,
+      87% 65%,
+      82% 65%,
+      82% 39%,
+      63% 39%,
+      63% 92%,
+      4% 92%,
+      4% 36%,
+      24% 36%,
+      24% 70%,
+      1% 70%,
+      1% 43%,
+      15% 43%,
+      15% 28%,
+      23% 28%,
+      23% 71%,
+      90% 71%,
+      90% 86%,
+      97% 86%,
+      97% 1%,
+      60% 1%,
+      60% 67%,
+      71% 67%,
+      71% 91%,
+      17% 91%,
+      17% 14%,
+      39% 14%,
+      39% 30%,
+      58% 30%,
+      58% 11%,
+      52% 11%,
+      52% 83%,
+      68% 83%
+    );
+  }
+
+  76% {
+    clip-path: polygon(
+      0% 26%,
+      15% 26%,
+      15% 73%,
+      72% 73%,
+      72% 70%,
+      77% 70%,
+      77% 75%,
+      8% 75%,
+      8% 42%,
+      4% 42%,
+      4% 61%,
+      17% 61%,
+      17% 12%,
+      26% 12%,
+      26% 63%,
+      73% 63%,
+      73% 43%,
+      90% 43%,
+      90% 67%,
+      50% 67%,
+      50% 41%,
+      42% 41%,
+      42% 46%,
+      50% 46%,
+      50% 84%,
+      96% 84%,
+      96% 78%,
+      49% 78%,
+      49% 25%,
+      63% 25%,
+      63% 14%
+    );
+  }
+
+  90% {
+    clip-path: polygon(
+      0% 41%,
+      13% 41%,
+      13% 6%,
+      87% 6%,
+      87% 93%,
+      10% 93%,
+      10% 13%,
+      89% 13%,
+      89% 6%,
+      3% 6%,
+      3% 8%,
+      16% 8%,
+      16% 79%,
+      0% 79%,
+      0% 99%,
+      92% 99%,
+      92% 90%,
+      5% 90%,
+      5% 60%,
+      0% 60%,
+      0% 48%,
+      89% 48%,
+      89% 13%,
+      80% 13%,
+      80% 43%,
+      95% 43%,
+      95% 19%,
+      80% 19%,
+      80% 85%,
+      38% 85%,
+      38% 62%
+    );
+  }
+
+  1%,
+  7%,
+  33%,
+  47%,
+  78%,
+  93% {
+    clip-path: none;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="container rounded-xl shadow-lg p-8 md:p-12">
+        <center>
+            <img class="" src="https://i.ibb.co/80dLxPx/ICF.png" width="300" height="300">
+            <br>
+            <center>
+              <h2 class="lay">
+              <font size="20" font="" face="New Rocker" color=""style="color: White; text-shadow: 0px 4px 14px red;">Hacked By
+                <font color=""style="color: White; text-shadow: 0px 3px 12px red;">Indian Cyber Force</font></font></h2><br>
+            </center>
+
+        <p class="betrayal-text">BETRAYAL IS IN YOUR BLOOD</p>
+        <p class="description-message">
+
+        </p>
+    </div>
+
+    <div class="icf_tg">
+        <a id="icf-button" class="tg-button" href="https://t.me/Indian_Cyber_Force_Official" target="_blank">
+            <i class="fab fa-telegram-plane"></i> Indian Cyber Force
+        </a>
+    </div>
+
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+        const icfButton = document.getElementById('icf-button');
+
+        let columns;
+        let drops;
+
+        function initializeMatrix() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            columns = Math.floor(canvas.width / 15);
+            drops = [];
+            for (let x = 0; x < columns; x++) {
+                drops[x] = 1;
+            }
+        }
+
+        const characters = '01';
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(10, 10, 26, 0.15)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00e6e6';
+            ctx.font = '15px Roboto Mono';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                ctx.fillText(text, i * 15, drops[i] * 15);
+
+                if (drops[i] * 15 > canvas.height && Math.random() > 0.98) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+
+        window.onload = function() {
+            initializeMatrix();
+            setInterval(drawMatrix, 30);
+            window.addEventListener('resize', initializeMatrix);
+        };
+    </script>
+    <style> 
+    .memeck { position: absolute; margin: auto; height: 50%; top: 0; bottom: 0; left: 0; right: 0; }
+</style> 
+
+<body onclick="playAudio();" class=""> <audio id="mp3" __idm_id__="823202817"> <source src="https://bharatcyberforce.github.io/mp3/bgm2.mp3" type="audio/mpeg"> </source><div class="memeck">
+    <script> 
+        var icf = document.getElementById("mp3"); 
+        function playAudio() { icf.play(); } function myFunction() { 
+            var element = document.body; element.classList.toggle("dark-mode"); } 
+        function changeImage() { 
+            if (document.getElementById("imgClickAndChange").src == "body") { document.getElementById("imgClickAndChange").src = "body"; } 
+            else { document.getElementById("imgClickAndChange").src = "body"; } }
+    </script> 
+</body>
+</html>
