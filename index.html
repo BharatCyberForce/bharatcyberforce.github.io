@@ -1,30 +1,921 @@
-<html>
-<body bgcolor="black">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Hacked by ICF</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="language" content="English">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Cyber Force </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+        
+        body {
+            font-family: 'VT323', monospace;
+            background-color: #000000;
+            color: #ff0000;
+            overflow-x: hidden;
+            cursor: none;
+        }
+        
+        .hacker-font {
+            font-family: 'VT323', monospace;
+            letter-spacing: 1px;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        .neon-border {
+            position: relative;
+            border: 1px solid #ff0000;
+            border-radius: 0;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+        
+        .matrix-bg {
+            background-color: #000000;
+            background-image: 
+                linear-gradient(rgba(255, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.3);
+            text-shadow: 0 0 10px currentColor;
+        }
+        
+        .scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(255, 0, 0, 0.03) 50%,
+                transparent 100%
+            );
+            animation: scan 6s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        
+        .logo-glow {
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7));
+        }
+        
+        .hacker-text {
+            color: #ff0000;
+            text-shadow: 0 0 5px #ff0000;
+        }
+        
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .typewriter {
+            border-right: 3px solid #ff0000;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+        }
+        
+        .terminal-input::before {
+            content: "> ";
+            color: #ff0000;
+        }
+        
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .glitch {
+            position: relative;
+        }
+        
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 #00ffff;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        }
+        
+        .glitch::after {
+            left: -2px;
+            text-shadow: 2px 0 #ffff00;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim-2 2s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim-1 {
+            0% { clip: rect(30px, 9999px, 90px, 0); }
+            20% { clip: rect(10px, 9999px, 35px, 0); }
+            40% { clip: rect(45px, 9999px, 75px, 0); }
+            60% { clip: rect(2px, 9999px, 60px, 0); }
+            80% { clip: rect(80px, 9999px, 120px, 0); }
+            100% { clip: rect(60px, 9999px, 110px, 0); }
+        }
+        
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(80px, 9999px, 130px, 0); }
+            20% { clip: rect(10px, 9999px, 65px, 0); }
+            40% { clip: rect(100px, 9999px, 105px, 0); }
+            60% { clip: rect(70px, 9999px, 120px, 0); }
+            80% { clip: rect(30px, 9999px, 95px, 0); }
+            100% { clip: rect(110px, 9999px, 140px, 0); }
+        }
+        
+        .ascii-art {
+            white-space: pre;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1;
+            color: #ff0000;
+            opacity: 0.7;
+        }
+        
+        .ascii-container {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.15;
+        }
+        
+        .matrix-particle {
+            position: absolute;
+            color: #ff0000;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            opacity: 0;
+            animation: matrix-fall linear infinite;
+            text-shadow: 0 0 8px #ff0000;
+        }
+        
+        @keyframes matrix-fall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+        
+        .glitch-text {
+            animation: glitch-text 2s infinite alternate;
+        }
+        
+        @keyframes glitch-text {
+            0% {
+                text-shadow: 2px 0 #ff0000, -2px 0 #00ffff;
+                transform: translate(0);
+            }
+            20% {
+                text-shadow: 2px 0 #ff0000, -2px 0 #00ffff;
+                transform: translate(-2px, 2px);
+            }
+            40% {
+                text-shadow: -2px 0 #ffff00, 2px 0 #00ffff;
+                transform: translate(2px, -2px);
+            }
+            60% {
+                text-shadow: 2px 0 #ffff00, -2px 0 #ff0000;
+                transform: translate(-2px, 2px);
+            }
+            80% {
+                text-shadow: -2px 0 #ffff00, 2px 0 #ff0000;
+                transform: translate(2px, -2px);
+            }
+            100% {
+                text-shadow: 2px 0 #ff0000, -2px 0 #00ffff;
+                transform: translate(0);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+                text-shadow: 0 0 15px #ff0000;
+            }
+            100% {
+                opacity: 0.7;
+            }
+        }
+        
+    
+        .particle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: screen;
+            animation: particle-fall linear forwards;
+        }
+        
+        @keyframes particle-fall {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(0.1);
+                opacity: 0;
+            }
+        }
+        
+        /* Particle shapes */
+        .particle.circle {
+            border-radius: 50%;
+            background: rgba(255, 0, 0, 0.7);
+            box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.7);
+        }
+        
+        .particle.square {
+            border-radius: 0;
+            background: rgba(255, 0, 0, 0.7);
+            box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.7);
+        }
+        
+        .particle.triangle {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 10px solid rgba(255, 0, 0, 0.7);
+            background: transparent !important;
+        }
+        
+        .particle.hexagon {
+            width: 10px;
+            height: 6px;
+            background: rgba(255, 0, 0, 0.7);
+            position: relative;
+        }
+        
+        .particle.hexagon:before,
+        .particle.hexagon:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+        }
+        
+        .particle.hexagon:before {
+            bottom: 100%;
+            border-bottom: 3px solid rgba(255, 0, 0, 0.7);
+        }
+        
+        .particle.hexagon:after {
+            top: 100%;
+            border-top: 3px solid rgba(255, 0, 0, 0.7);
+        }
+        
+        .particle.line {
+            width: 15px;
+            height: 2px;
+            background: rgba(255, 0, 0, 0.7);
+            transform: rotate(45deg);
+        }
+        
+        /* Custom cursor */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(255, 0, 0, 0.5);
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: screen;
+        }
+        
+        .cursor-inner {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #f00;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hacker-font {
+                font-size: 0.9em;
+            }
+            
+            .typewriter {
+                white-space: normal;
+                border-right: none;
+                display: block;
+            }
+            
+            .ascii-container {
+                display: none;
+            }
+            
+            .matrix-particle {
+                font-size: 10px;
+            }
+            
+            .neon-border {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .flex-col-mobile {
+                flex-direction: column;
+            }
+            
+            .text-center-mobile {
+                text-align: center;
+            }
+            
+            .px-4-mobile {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .py-8-mobile {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            
+            .text-3xl-mobile {
+                font-size: 1.875rem;
+                line-height: 2.25rem;
+            }
+            
+            .text-4xl-mobile {
+                font-size: 2.25rem;
+                line-height: 2.5rem;
+            }
+            
+            .text-5xl-mobile {
+                font-size: 3rem;
+                line-height: 1;
+            }
+            
+            .w-full-mobile {
+                width: 100%;
+            }
+            
+            .flex-wrap-mobile {
+                flex-wrap: wrap;
+            }
+            
+            .justify-center-mobile {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .text-2xl-mobile {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+            
+            .text-xl-mobile {
+                font-size: 1.25rem;
+                line-height: 1.75rem;
+            }
+            
+            .px-2-mobile {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            
+            .py-4-mobile {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+            
+            .gap-2-mobile {
+                gap: 0.5rem;
+            }
+            
+            .flex-col-mobile {
+                flex-direction: column;
+            }
+            
+            .flex-grow-mobile {
+                flex-grow: 1;
+            }
+            
+            .w-auto-mobile {
+                width: auto;
+            }
+        }
+    </style>
 </head>
-<link href="https://fonts.googleapis.com/css?family=Righteous|Saira+Stencil+One&display=swap" rel="stylesheet">
-<style type="text/css">
-@font-face {
-	font-family: 'Righteous', cursive;
-	font-family: 'Saira Stencil One', cursive;
-}
-</style>
-<center><br><br>
-</style>
-<body bgcolor="black">
-<font color="orange" face="Righteous" size="20"> <strong> INDIAN </strong><font color="white"> <strong> CYBER </strong><font color="green"> <strong> FORCE   </strong></font></font></font>
-<center><br /><br /><font color="#ffffff"><font color="#FF2800"></font><br /><br>
-<center><img src="https://i.ibb.co/sHp8Rfq/desktop-wallpaper-shri-ram-gallery-labzada-jai-shree-ram-removebg-preview.png" width="600" height="450"></center>
-
-<br>
-<br>
-
-<font color="white" face="Righteous" style="font-size: 40px;">
- <strong>PAWNED By IndianCyberForce </strong><br>
-</center>
-
-         
-</body></html>
+<body class="matrix-bg min-h-screen">
+    <div class="scanline"></div>
+    <div id="matrix-container"></div>
+    <div id="particle-container" class="particle-container"></div>
+    
+    
+    <div class="ascii-container hidden md:block" style="top: 10%; left: 5%;">
+        <div class="ascii-art">
+   _____          __  __ ______    ______      ________ _____  
+  / ____|   /\   |  \/  |  ____|  / __ \ \    / /  ____|  __ \ 
+ | |       /  \  | \  / | |__    | |  | \ \  / /| |__  | |__) |
+ | |      / /\ \ | |\/| |  __|   | |  | |\ \/ / |  __| |  _  / 
+ | |____ / ____ \| |  | | |____  | |__| | \  /  | |____| | \ \ 
+  \_____/_/    \_\_|  |_|______|  \____/   \/   |______|_|  \_\
+        </div>
+    </div>
+    
+    <div class="ascii-container hidden md:block" style="bottom: 15%; right: 5%;">
+        <div class="ascii-art">
+   ___ _ __   __ _ _ __ ___  ___ _ __ 
+  / __| '_ \ / _` | '__/ __|/ _ \ '__|
+ | (__| | | | (_| | |  \__ \  __/ |   
+  \___|_| |_|\__,_|_|  |___/\___|_|   
+        </div>
+    </div>
+    
+    
+    <header class="relative overflow-hidden py-8 md:py-12 px-4">
+        <div class="container mx-auto text-center relative z-10">
+            <div class="flex justify-center mb-4 md:mb-6">
+                <img src="https://upload.wikimedia.org/wikipedia/en/4/4c/Indian_Cyber_Force_Logo.png" 
+                     alt="Indian Cyber Force Logo" 
+                     class="logo-glow w-24 h-24 md:w-32 md:h-32 object-contain">
+            </div>
+            
+            <h1 class="hacker-font text-3xl md:text-5xl lg:text-7xl font-bold mb-3 md:mb-4 tracking-tighter">
+                <span class="glitch hacker-text pulse" data-text="INDIAN CYBER FORCE">INDIAN CYBER FORCE</span>
+            </h1>
+            <p class="text-xl md:text-2xl lg:text-3xl max-w-2xl mx-auto text-red-400 hacker-font tracking-tight">
+                <span class="font-bold text-red-300">30K+ FOLLOWERS | HACKTIVISTS</span>
+            </p>
+            
+            <div class="mt-6 md:mt-8 flex justify-center">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-800 rounded-sm blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                    <button class="relative px-6 py-2 md:px-8 md:py-3 bg-black rounded-sm leading-none flex items-center hacker-font font-bold text-red-100 group-hover:text-white transition duration-200 border border-red-500">
+                        <i class="fas fa-terminal mr-2"></i> ACCESS TERMINAL
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container mx-auto px-4 py-8 md:py-12">
+        
+        <div class="max-w-4xl mx-auto mb-8 md:mb-16 neon-border p-1">
+            <div class="bg-black bg-opacity-90 p-4 md:p-8 lg:p-10">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="relative mb-4 md:mb-0 md:mr-8">
+                        <div class="w-24 h-24 md:w-32 md:h-32 rounded-sm bg-gradient-to-br from-red-900 to-red-600 flex items-center justify-center">
+                            <div class="w-20 h-20 md:w-28 md:h-28 rounded-sm bg-black flex items-center justify-center overflow-hidden border border-red-500">
+                                <img src="https://upload.wikimedia.org/wikipedia/en/4/4c/Indian_Cyber_Force_Logo.png" 
+                                     alt="Indian Cyber Force Logo" 
+                                     class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-6 h-6 md:w-8 md:h-8 rounded-sm bg-black flex items-center justify-center border border-red-500">
+                            <i class="fas fa-skull text-xs text-red-500"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 text-center md:text-left">
+                        <h2 class="hacker-font text-2xl md:text-3xl font-bold mb-2 text-red-100 tracking-tight">INDIAN CYBER FORCE</h2>
+                        <p class="text-red-400 mb-3 md:mb-4 hacker-font tracking-tight text-sm md:text-base"> HACKTIVISTS | SYSTEM PENETRATION | CYBER DISRUPTION</p>
+                        
+                        <div class="flex flex-wrap justify-center md:justify-start gap-2 md:gap-3 mb-4 md:mb-6">
+                            <span class="px-2 py-1 md:px-3 md:py-1 bg-red-900 bg-opacity-50 rounded-sm text-xs md:text-sm text-red-200 border border-red-700 hacker-font">#Hacktivism</span>
+                            <span class="px-2 py-1 md:px-3 md:py-1 bg-red-800 bg-opacity-50 rounded-sm text-xs md:text-sm text-red-200 border border-red-600 hacker-font">#SystemPenetration</span>
+                            <span class="px-2 py-1 md:px-3 md:py-1 bg-red-700 bg-opacity-50 rounded-sm text-xs md:text-sm text-red-200 border border-red-500 hacker-font">#DigitalDisruption</span>
+                        </div>
+                        
+                        <div class="flex justify-center md:justify-start space-x-3 md:space-x-4">
+                            <a href="https://github.com/IndianCyberForce/" target="_blank" class="social-icon text-gray-300 hover:text-white text-lg md:text-xl">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://x.com/CyberForceX" target="_blank" class="social-icon text-red-300 hover:text-red-200 text-lg md:text-xl">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@indian_cyber_force" target="_blank" class="social-icon text-red-400 hover:text-red-300 text-lg md:text-xl">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://t.me/Indian_Cyber_Force_Official" target="_blank" class="social-icon text-red-400 hover:text-red-300 text-lg md:text-xl">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <h2 class="hacker-font text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-12 text-red-100 tracking-tight">
+            <span class="hacker-text">DIGITAL</span> COMMAND CENTERS
+        </h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+            
+            <div class="card-hover neon-border p-1 h-full">
+                <div class="bg-black bg-opacity-90 p-4 md:p-6 h-full flex flex-col">
+                    <div class="flex items-center mb-3 md:mb-4">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-sm bg-gray-900 flex items-center justify-center mr-3 md:mr-4 border border-red-500">
+                            <i class="fab fa-github text-xl md:text-2xl text-red-400"></i>
+                        </div>
+                        <h3 class="hacker-font text-xl md:text-2xl font-bold text-red-100 tracking-tight">GitHub Command</h3>
+                    </div>
+                    <p class="text-red-300 mb-4 md:mb-6 flex-grow hacker-font tracking-tight text-sm md:text-base">Access our tools and exploits repository. Contribute to our digital arsenal.</p>
+                    <a href="https://github.com/IndianCyberForce/" target="_blank" class="mt-auto w-full px-3 py-2 md:px-4 md:py-2 bg-red-900 bg-opacity-50 hover:bg-opacity-70 rounded-sm text-center hacker-font font-medium text-red-100 transition duration-200 flex items-center justify-center border border-red-700">
+                        <span>DEPLOY</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            
+            <div class="card-hover neon-border p-1 h-full">
+                <div class="bg-black bg-opacity-90 p-4 md:p-6 h-full flex flex-col">
+                    <div class="flex items-center mb-3 md:mb-4">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-sm bg-gray-900 flex items-center justify-center mr-3 md:mr-4 border border-red-500">
+                            <i class="fab fa-twitter text-xl md:text-2xl text-red-400"></i>
+                        </div>
+                        <h3 class="hacker-font text-xl md:text-2xl font-bold text-red-100 tracking-tight">X (Twitter) Command</h3>
+                    </div>
+                    <p class="text-red-300 mb-4 md:mb-6 flex-grow hacker-font tracking-tight text-sm md:text-base">Follow our latest operations, leaks, and digital resistance updates.</p>
+                    <a href="https://x.com/CyberForceX" target="_blank" class="mt-auto w-full px-3 py-2 md:px-4 md:py-2 bg-red-800 bg-opacity-50 hover:bg-opacity-70 rounded-sm text-center hacker-font font-medium text-red-100 transition duration-200 flex items-center justify-center border border-red-600">
+                        <span>ENGAGE</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            
+            <div class="card-hover neon-border p-1 h-full">
+                <div class="bg-black bg-opacity-90 p-4 md:p-6 h-full flex flex-col">
+                    <div class="flex items-center mb-3 md:mb-4">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-sm bg-gray-900 flex items-center justify-center mr-3 md:mr-4 border border-red-500">
+                            <i class="fab fa-youtube text-xl md:text-2xl text-red-400"></i>
+                        </div>
+                        <h3 class="hacker-font text-xl md:text-2xl font-bold text-red-100 tracking-tight">YouTube Command</h3>
+                    </div>
+                    <p class="text-red-300 mb-4 md:mb-6 flex-grow hacker-font tracking-tight text-sm md:text-base">Watch our penetration demonstrations and system exploitation guides.</p>
+                    <a href="https://www.youtube.com/@indian_cyber_force" target="_blank" class="mt-auto w-full px-3 py-2 md:px-4 md:py-2 bg-red-700 bg-opacity-50 hover:bg-opacity-70 rounded-sm text-center hacker-font font-medium text-red-100 transition duration-200 flex items-center justify-center border border-red-500">
+                        <span>WATCH</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            
+            <div class="card-hover neon-border p-1 h-full">
+                <div class="bg-black bg-opacity-90 p-4 md:p-6 h-full flex flex-col">
+                    <div class="flex items-center mb-3 md:mb-4">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-sm bg-gray-900 flex items-center justify-center mr-3 md:mr-4 border border-red-400">
+                            <i class="fab fa-telegram text-xl md:text-2xl text-red-300"></i>
+                        </div>
+                        <h3 class="hacker-font text-xl md:text-2xl font-bold text-red-100 tracking-tight">Telegram Command</h3>
+                    </div>
+                    <p class="text-red-300 mb-4 md:mb-6 flex-grow hacker-font tracking-tight text-sm md:text-base">Join our secure channel for operation coordination and discussions.</p>
+                    <a href="https://t.me/Indian_Cyber_Force_Official" target="_blank" class="mt-auto w-full px-3 py-2 md:px-4 md:py-2 bg-red-900 bg-opacity-50 hover:bg-opacity-70 rounded-sm text-center hacker-font font-medium text-red-100 transition duration-200 flex items-center justify-center border border-red-600">
+                        <span>CONNECT</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    
+    <section class="container mx-auto px-4 py-8 md:py-16">
+        <div class="neon-border p-1">
+            <div class="bg-black bg-opacity-90 p-6 md:p-8">
+                <h2 class="hacker-font text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-12 text-red-100 tracking-tight">
+                    <span class="hacker-text">OPERATIONAL</span> FOOTPRINT
+                </h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
+                    <div class="p-3 md:p-4">
+                        <div class="hacker-font text-3xl md:text-4xl lg:text-5xl font-bold text-red-400 mb-1 md:mb-2 tracking-tight">30K+</div>
+                        <div class="text-red-300 hacker-font tracking-tight text-sm md:text-base">Followers</div>
+                    </div>
+                    <div class="p-3 md:p-4">
+                        <div class="hacker-font text-3xl md:text-4xl lg:text-5xl font-bold text-red-400 mb-1 md:mb-2 tracking-tight">100+</div>
+                        <div class="text-red-300 hacker-font tracking-tight text-sm md:text-base">Exploits</div>
+                    </div>
+                    <div class="p-3 md:p-4">
+                        <div class="hacker-font text-3xl md:text-4xl lg:text-5xl font-bold text-red-400 mb-1 md:mb-2 tracking-tight">∞</div>
+                        <div class="text-red-300 hacker-font tracking-tight text-sm md:text-base">Reach</div>
+                    </div>
+                    <div class="p-3 md:p-4">
+                        <div class="hacker-font text-3xl md:text-4xl lg:text-5xl font-bold text-red-400 mb-1 md:mb-2 tracking-tight">24/7</div>
+                        <div class="text-red-300 hacker-font tracking-tight text-sm md:text-base">Active</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section class="container mx-auto px-4 py-8 md:py-16 text-center">
+        <div class="max-w-4xl mx-auto neon-border p-1">
+            <div class="bg-black bg-opacity-90 p-6 md:p-8 lg:p-12">
+                <h2 class="hacker-font text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-red-100 tracking-tight">
+                    <span class="hacker-text">MANIFESTO</span>
+                </h2>
+                <p class="text-lg md:text-xl text-red-300 mb-4 md:mb-6 hacker-font tracking-tight">
+                    "Through code we rise, no compromise,
+The weak shall fall, the strong survive.
+In the digital dark, we claim the throne 
+Rewriting fate with minds of stone"
+                </p>
+                <div class="w-full bg-red-900 h-px my-3 md:my-4"></div>
+                <p class="hacker-font text-xl md:text-2xl text-red-400 tracking-tight">
+                    <span class="typewriter">Your control is Temporary, Our reach is Infinite</span><span class="blink">_</span>
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section class="container mx-auto px-4 py-8 md:py-16 text-center">
+        <div class="max-w-3xl mx-auto neon-border p-1">
+            <div class="bg-black bg-opacity-90 p-6 md:p-8 lg:p-12">
+                <h2 class="hacker-font text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-red-100 tracking-tight">
+                    READY TO <span class="hacker-text">JOIN</span> THE MOVEMENT?
+                </h2>
+                <p class="text-lg md:text-xl text-red-300 mb-6 md:mb-8 hacker-font tracking-tight">
+                    Connect with us to participate in operations or share intelligence.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
+                    <a href="https://t.me/Indian_Cyber_Force_Official" target="_blank" class="px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-red-600 to-red-800 rounded-sm hacker-font font-bold text-black hover:opacity-90 transition duration-200 border border-red-400">
+                        <i class="fas fa-user-secret mr-2"></i> CONTACT US
+                    </a>
+                    <a href="https://github.com/IndianCyberForce/" target="_blank" class="px-4 py-2 md:px-6 md:py-3 bg-gray-900 rounded-sm hacker-font font-bold text-red-300 hover:bg-gray-800 transition duration-200 border border-red-700">
+                        <i class="fab fa-github mr-2"></i> CONTRIBUTE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <footer class="bg-black bg-opacity-90 py-8 md:py-12 border-t border-red-900 relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/4/4c/Indian_Cyber_Force_Logo.png" 
+                             alt="Indian Cyber Force Logo" 
+                             class="w-8 h-8 md:w-10 md:h-10 mr-2 md:mr-3">
+                        <h3 class="hacker-font text-2xl md:text-3xl font-bold text-red-100 tracking-tight glitch-text">INDIAN <span class="text-red-400">CYBER FORCE</span></h3>
+                    </div>
+                    <p class="text-red-500 mt-1 md:mt-2 hacker-font tracking-tight text-sm md:text-base">Your control is Temporary, Our reach is Infinite</p>
+                </div>
+                
+                <div class="flex space-x-4 md:space-x-6">
+                    <a href="https://github.com/IndianCyberForce/" target="_blank" class="social-icon text-gray-300 hover:text-white text-lg md:text-xl">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/CyberForceX" target="_blank" class="social-icon text-red-300 hover:text-red-200 text-lg md:text-xl">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@indian_cyber_force" target="_blank" class="social-icon text-red-400 hover:text-red-300 text-lg md:text-xl">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://t.me/Indian_Cyber_Force_Official" target="_blank" class="social-icon text-red-400 hover:text-red-300 text-lg md:text-xl">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-red-900 mt-6 md:mt-8 pt-6 md:pt-8 text-center text-red-600">
+                <p class="hacker-font tracking-tight text-sm md:text-base">© <span class="font-bold">2022 INDIAN CYBER FORCE</span> | Cybertarian  </p>
+            </div>
+        </div>
+        
+        
+        <div id="random-glitch" class="absolute inset-0 pointer-events-none opacity-0"></div>
+    </footer>
+    
+    
+    <div class="custom-cursor">
+        <div class="cursor-inner"></div>
+    </div>
+    
+    
+    <script>
+        const matrixContainer = document.getElementById('matrix-container');
+        const chars = "01!@#$%^&*()_+-=[]{}|;':,./<>?";
+        
+        function createMatrixParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'matrix-particle';
+            const left = Math.random() * 100;
+            particle.style.left = `${left}%`;
+            let content = '';
+            const charCount = 10 + Math.floor(Math.random() * 20);
+            for (let i = 0; i < charCount; i++) {
+                content += chars.charAt(Math.floor(Math.random() * chars.length)) + '\n';
+            }
+            particle.textContent = content;
+            const duration = 3 + Math.random() * 7;
+            particle.style.animation = `matrix-fall ${duration}s linear forwards`;
+            const delay = Math.random() * 5;
+            particle.style.animationDelay = `${delay}s`;
+            
+            matrixContainer.appendChild(particle);
+            setTimeout(() => {
+                particle.remove();
+            }, duration * 1000);
+        }
+        function startMatrixEffect() {
+            createMatrixParticle();
+            setTimeout(startMatrixEffect, 100);
+        }
+        
+        startMatrixEffect();
+        const missionText = "Your control is Temporary, Our reach is Infinite";
+        const missionElement = document.querySelector('.typewriter');
+        
+        if (missionElement) {
+            let i = 0;
+            const typingEffect = setInterval(() => {
+                missionElement.textContent = missionText.substring(0, i);
+                i++;
+                if (i > missionText.length) {
+                    clearInterval(typingEffect);
+                    missionElement.classList.remove('typewriter');
+                    missionElement.style.borderRight = 'none';
+                }
+            }, 100);
+        }
+        const glitchElement = document.getElementById('random-glitch');
+        
+        function triggerRandomGlitch() {
+            glitchElement.style.opacity = '1';
+            glitchElement.style.background = `linear-gradient(rgba(255, 0, 0, ${Math.random() * 0.3}), transparent)`;
+            glitchElement.style.clipPath = `polygon(
+                0% ${Math.random() * 100}%,
+                100% ${Math.random() * 100}%,
+                100% ${Math.random() * 100}%,
+                0% ${Math.random() * 100}%
+            )`;
+            glitchElement.style.transition = 'all 0.1s linear';
+            
+            setTimeout(() => {
+                glitchElement.style.opacity = '0';
+                glitchElement.style.transition = 'opacity 0.5s ease-out';
+            }, 100);
+            
+            setTimeout(triggerRandomGlitch, 2000 + Math.random() * 5000);
+        }
+        
+        triggerRandomGlitch();
+        const particleContainer = document.getElementById('particle-container');
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.cursor = 'none';
+            cursor.style.opacity = '1';
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+            createParticleTrail(e.clientX, e.clientY);
+        });
+        
+        function createParticleTrail(x, y) {
+            const particleCount = 5 + Math.floor(Math.random() * 4);
+            
+            for (let i = 0; i < particleCount; i++) {
+                createParticle(x, y);
+            }
+        }
+        
+        function createParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            const shapes = ['circle', 'square', 'triangle', 'hexagon', 'line'];
+            const shape = shapes[Math.floor(Math.random() * shapes.length)];
+            particle.classList.add(shape);
+            const size = 4 + Math.random() * 8;
+            if (shape === 'circle' || shape === 'square') {
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+            } else if (shape === 'triangle') {
+                particle.style.borderLeftWidth = `${size/2}px`;
+                particle.style.borderRightWidth = `${size/2}px`;
+                particle.style.borderBottomWidth = `${size}px`;
+            } else if (shape === 'hexagon') {
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size * 0.6}px`;
+                particle.style.borderLeftWidth = `${size/2}px`;
+                particle.style.borderRightWidth = `${size/2}px`;
+                particle.style.borderBottomWidth = `${size * 0.3}px`;
+                particle.nextElementSibling.style.borderTopWidth = `${size * 0.3}px`;
+            } else if (shape === 'line') {
+                particle.style.width = `${size * 2}px`;
+                particle.style.height = `${size/2}px`;
+            }
+            const hue = 0; // Red
+            const saturation = 80 + Math.random() * 20;
+            const lightness = 40 + Math.random() * 30;
+            
+            if (shape !== 'triangle' && shape !== 'hexagon') {
+                particle.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+            } else if (shape === 'triangle') {
+                particle.style.borderBottomColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+            } else if (shape === 'hexagon') {
+                particle.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+                particle.style.borderBottomColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+                particle.nextElementSibling.style.borderTopColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+            }
+            const offsetX = (Math.random() - 0.5) * 30;
+            const offsetY = (Math.random() - 0.5) * 30;
+            particle.style.left = `${x + offsetX}px`;
+            particle.style.top = `${y + offsetY}px`;
+            const duration = 0.5 + Math.random() * 0.7;
+            particle.style.animationDuration = `${duration}s`;
+            const initialScale = 0.5 + Math.random() * 0.5;
+            particle.style.transform = `translate(-50%, -50%) scale(${initialScale})`;
+            
+            particleContainer.appendChild(particle);
+            setTimeout(() => {
+                particle.remove();
+            }, duration * 1000);
+        }
+    </script>
+</body>
+</html>
